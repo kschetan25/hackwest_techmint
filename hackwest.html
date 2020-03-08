@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title>Simple Polylines</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      // This example creates a 2-pixel-wide red polyline showing the path of
+      // the first trans-Pacific flight between Oakland, CA, and Brisbane,
+      // Australia which was made by Charles Kingsford Smith.
+
+      /*  function initMap() {
+             var directionsService = new google.maps.DirectionsService;
+        var directionsRenderer = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: {lat: 33.584538,
+                lng: -101.874720},
+          mapTypeId: 'terrain'
+        });
+            directionsRenderer.setMap(map);
+var route47 = [
+   { lat: 33.594137, lng: -101.875016 }, 
+   { lat: 33.594129, lng: -101.870566 }, 
+   { lat: 33.584546, lng: -101.870719 }, 
+   { lat: 33.584654, lng: -101.873184 }, 
+   { lat: 33.585432, lng: -101.873055 }, 
+   { lat: 33.588158, lng: -101.872347 }, 
+   { lat: 33.590142, lng: -101.874385 }, 
+   { lat: 33.589615, lng: -101.878441 }, 
+   { lat: 33.588910, lng: -101.880105 }, 
+   { lat: 33.587745, lng: -101.882370 }, 
+   { lat: 33.587673, lng: -101.887230 }, 
+   { lat: 33.588056, lng: -101.887245 }, 
+   { lat: 33.589432, lng: -101.887280 }, 
+   { lat: 33.589450, lng: -101.887774 }, 
+   { lat: 33.592205, lng: -101.887771 }, 
+   { lat: 33.595922, lng: -101.887857 }, 
+   { lat: 33.595924, lng: -101.887193 }, 
+   { lat: 33.595942, lng: -101.885575 }, 
+   { lat: 33.595940, lng: -101.879125 }, 
+   { lat: 33.594164, lng: -101.879070 }, 
+   ];
+var start = [{ lat: 33.594137, lng: -101.875016 }] ;
+var end=[{ lat: 33.584654, lng: -101.873184 }];
+var route477=[];
+          route477.push({
+    location: new google.maps.LatLng(33.594137,-101.875016),
+    stopover: true
+}) 
+          
+           route477.push({
+    location: new google.maps.LatLng(33.594129,-101.870566),
+    stopover: true
+}) 
+           route477.push({
+    location: new google.maps.LatLng(33.584546, -101.870719),
+    stopover: true
+}) 
+           route477.push({
+    location: new google.maps.LatLng(33.584654, -101.873184),
+    stopover: true
+}) 
+          
+          
+           directionsService.route({
+          origin:start,
+          destination: end,
+          waypoints: route477,
+          optimizeWaypoints: true,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsRenderer.setDirections(response);
+            var route = response.routes[0];
+            var summaryPanel = document.getElementById('directions-panel');
+            summaryPanel.innerHTML = '';
+            // For each route, display summary information.
+            for (var i = 0; i < route.legs.length; i++) {
+              var routeSegment = i + 1;
+              summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                  '</b><br>';
+              summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+              summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+              summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+            }
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      
+          
+          
+          
+          
+        var flightPath = new google.maps.Polyline({
+          path: route47,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+             draggable: true,
+  geodesic: true
+        });
+
+        flightPath.setMap(map);
+      }*/
+
+      function initMap() {
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRenderer = new google.maps.DirectionsRenderer();
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: { lat: 33.584538, lng: -101.87472 },
+          mapTypeId: 'terrain'
+        });
+        directionsRenderer.setMap(map);
+        calculateAndDisplayRoute(directionsService, directionsRenderer);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+        var route477 = [];
+        var start = new google.maps.LatLng(33.594137, -101.875016);
+
+        var end = new google.maps.LatLng(33.594129, -101.870566);
+
+        var route47 = [
+          { lat: 33.594129, lng: -101.870566 },
+          { lat: 33.584546, lng: -101.870719 },
+          { lat: 33.584654, lng: -101.873184 },
+          { lat: 33.585432, lng: -101.873055 },
+          { lat: 33.588158, lng: -101.872347 },
+          { lat: 33.590142, lng: -101.874385 },
+
+          { lat: 33.58891, lng: -101.880105 },
+          { lat: 33.587745, lng: -101.88237 },
+          { lat: 33.587673, lng: -101.88723 },
+          { lat: 33.588056, lng: -101.887245 },
+
+          { lat: 33.592205, lng: -101.887771 },
+          { lat: 33.595922, lng: -101.887857 },
+          { lat: 33.595924, lng: -101.887193 },
+          { lat: 33.595942, lng: -101.885575 },
+          { lat: 33.59594, lng: -101.879125 },
+          { lat: 33.594164, lng: -101.87907 }
+        ];
+
+        route47.forEach(element =>
+          route477.push({
+            location: new google.maps.LatLng(element.lat, element.lng),
+            stopover: false
+          })
+        );
+
+        directionsService.route(
+          {
+            origin: start,
+            destination: end,
+            waypoints: route477,
+            optimizeWaypoints: true,
+            travelMode: 'DRIVING'
+          },
+          function(response, status) {
+            if (status === 'OK') {
+              directionsRenderer.setDirections(response);
+              var route = response.routes[0];
+            } else {
+              window.alert('Directions request failed due to ' + status);
+            }
+          }
+        );
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6RnTppa2NTVYZkL-K_MlQxT3yBkZW2E&callback=initMap&libraries=places"
+    ></script>
+  </body>
+</html>
