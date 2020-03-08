@@ -1,0 +1,19 @@
+{
+  "name": "hackwest_techmint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kschetan25/hackwest_techmint.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kschetan25/hackwest_techmint/issues"
+  },
+  "homepage": "https://github.com/kschetan25/hackwest_techmint#readme"
+}
