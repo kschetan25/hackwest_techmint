@@ -1,7 +1,6 @@
 
 var a;
 var mapv;
-var marker;
 function getLocation(map) {
     mapv=map;
 
@@ -77,17 +76,14 @@ function sum(lat,lng){
   };
     
     
-       if(marker){
-        marker.setMap("null");
-    }else{
-     marker = new google.maps.Marker({
+     var marker = new google.maps.Marker({
     position: new google.maps.LatLng(sumlat,sumlng),
     map: map,
     title: 'The bus!!!',
     icon :image
   });
              //console.log("ssssssss")
-             marker.setMap(map);}
+             marker.setMap(map);
     return ret
     
 } 

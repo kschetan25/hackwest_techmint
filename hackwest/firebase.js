@@ -1,7 +1,6 @@
 
 var a;
 var mapv;
-var marker;
 function getLocation(map) {
     mapv=map;
   if (navigator.geolocation) {
@@ -13,8 +12,8 @@ function getLocation(map) {
 }
 
 function showPosition(position) {
- /* console.log( "Latitude: " + position.coords.latitude +
-  "Longitude: " + position.coords.longitude);*/
+  console.log( "Latitude: " + position.coords.latitude +
+  "Longitude: " + position.coords.longitude);
     
     var firebaseConfig = {
     apiKey: "AIzaSyA9OPN4SW-2XwgUZedkwvRPCXLBpcS1LRA",
@@ -82,17 +81,15 @@ function sum(lat,lng){
     anchor: new google.maps.Point(0, 32)
   };
     
-    if(marker){
-        marker.setMap("null");
-    }else{
-     marker = new google.maps.Marker({
+    
+     var marker = new google.maps.Marker({
     position: new google.maps.LatLng(sumlat,sumlng),
     map: map,
     title: 'The bus!!!',
     icon :image
   });
-            // console.log("ssssssss")
-             marker.setMap(map);}
+             console.log("ssssssss")
+             marker.setMap(map);
     return ret
     
 } 
