@@ -14,13 +14,7 @@ function showPosition(position) {
   "Longitude: " + position.coords.longitude);*/
     
     var firebaseConfig = {
-    apiKey: "AIzaSyA9OPN4SW-2XwgUZedkwvRPCXLBpcS1LRA",
-    authDomain: "hackwest-5487e.firebaseapp.com",
-    databaseURL: "https://hackwest-5487e.firebaseio.com",
-    projectId: "hackwest-5487e",
-    storageBucket: "hackwest-5487e.appspot.com",
-    messagingSenderId: "738055525872",
-    appId: "1:738055525872:web:bed1e5990cba6b21b5b935"
+  
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
